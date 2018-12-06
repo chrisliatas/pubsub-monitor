@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% import 'bootstrap/wtf.html' as wtf %}
+
+{% block app_content %}
+<div class="row">
+    <div class="container">
+        <div class="row text-center">
+                <h1>Cloud Pub/Sub Notifications</h1>
+
+        </div>
+        <div class="row">
+            <div class="col-sm-4 col-sm-offset-4">
+                <div class="bordered">
+                    <h2 class="text-center">{{ 'Sign In' }}</h2>
+                    {{ wtf.quick_form(form) }}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

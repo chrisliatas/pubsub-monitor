@@ -1,0 +1,83 @@
+{% extends 'bootstrap/base.html' %}
+
+{% block head %}
+{{super()}}
+{% block favicon %}<link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">{% endblock %}
+{% endblock %}
+{% block styles %}
+{{super()}}
+<link rel="stylesheet" href="{{ url_for('static', filename='gcpubsub.css') }}">
+{% if current_user.is_authenticated %}
+<link rel="stylesheet" href="{{ url_for('admin.pygments_css') }}">
+{% endif %}
+{% endblock %}
+
+{% block title %}
+    {% if title %}{{ title }} - GCP{% else %}{{ 'Cloud Build notifications' }}{% endif %}
+{% endblock %}
+
+{% block navbar %}
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="{{ url_for('admin.index') }}">GCP Pub/Sub Notifications</a>
+            </div>
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    {% if current_user.is_authenticated %}
+                    <li><a href="{{ url_for('admin.logout') }}">{{ 'Logout' }}</a></li>
+                    {% endif %}
+                </ul>
+                {% if current_user.is_authenticated %}
+                <form id="changepwd" class="navbar-form navbar-right">
+                    <input id="newpass" class="form-control" type="password" placeholder="new password" aria-label="new password">
+                    <input id="cnfrmpass" class="form-control" type="password" placeholder="confirm password" aria-label="confirm password">
+                    <button id="chngpass" class="btn btn-outline-success" type="submit">Change</button>
+                </form>
+                {% endif %}
+            </div>
+        </div>
+    </nav>
+{% endblock %}
+
+{% block content %}
+    <div class="container-fluid">
+        <div class="row">
+            <div class="container">
+                <div class="row">
+                    {% if current_user.is_authenticated %}
+                    <div id="current-task" class="alert alert-success collapse" role="alert">
+                        <span>task description</span>
+                        <span id="task-progress"><strong>task progress</strong></span>
+                    </div>
+                    <div id="clnt-alert" class="alert alert-info collapse" role="alert">.</div>
+                    {% endif %}
+                    {% with messages = get_flashed_messages() %}
+                    {% if messages %}
+                        {% for message in messages %}
+                        <div class="alert alert-info" role="alert">{{ message }}</div>
+                        {% endfor %}
+                    {% endif %}
+                    {% endwith %}
+                </div>
+            </div>
+        </div>
+
+        {% block app_content %}{% endblock %}
+    </div>
+{% endblock %}
+
+{% block scripts %}
+    {{ super() }}
+    {{ moment.include_moment() }}
+    {% if current_user.is_authenticated %}
+    <script src="https://unpkg.com/infinite-scroll@3/dist/infinite-scroll.pkgd.min.js"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='main.js') }}"></script>
+    {% endif %}
+{% endblock %}

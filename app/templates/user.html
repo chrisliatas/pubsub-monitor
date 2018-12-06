@@ -1,0 +1,75 @@
+{% extends "base.html" %}
+
+{% block app_content %}
+<div class="row">
+    <div class="container">
+        <div class="row vertical-align">
+            <div class="col-sm-6">
+                <table class="table-borderless">
+                    <tr>
+                        <td>
+                            <h2>User: {{ user.username }}</h2>
+                            {% if user.last_seen %}
+                            <p><small>Last seen on: {{ moment(user.last_seen).format('LLL') }}</small></p>
+                            {% endif %}
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div class="col-sm-6 text-center">
+                <p><a id="pollnav" class="btn btn-primary btn-lg" href="">Start polling</a></p>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <table class="table table-striped">
+        <thead>
+          <tr>
+            <th class="text-center">#</th>
+            <th class="text-center">Attributes and Data Payload</th>
+          </tr>
+        </thead>
+        <tbody id="useritems" class="js-infinite-layout">
+            {% for item in items %}
+                {% include '_useritem.html' %}
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+<div class="row">
+    <!-- status elements for Infinite Scroll -->
+    <div class="page-load-status">
+      <div class="infinite-scroll-request loader-ellips">
+          <span class="loader-ellips__dot"></span>
+          <span class="loader-ellips__dot"></span>
+          <span class="loader-ellips__dot"></span>
+          <span class="loader-ellips__dot"></span>
+      </div>
+      <p class="infinite-scroll-last">End of content</p>
+      <p class="infinite-scroll-error">No more pages to load</p>
+    </div>
+    <!-- end status elements -->
+{#
+    <!-- Alternative Infinite Scroll button -->
+    <div class="pb-05">
+        <button type="button" class="btn btn-primary btn-lg btn-block view-more-button">Load more</button>
+    </div>
+#}
+    <!-- pagination nav, hidden when Infinite Scroll enabled -->
+    <nav aria-label="..." class="js-infinite-nav">
+        <ul class="pager">
+            <li class="previous{% if not prev_url %} disabled{% endif %}">
+                <a href="{{ prev_url or '#' }}">
+                    <span aria-hidden="true">&larr;</span>Newer items
+                </a>
+            </li>
+            <li class="next{% if not next_url %} disabled{% endif %}">
+                <a class="pagination__next" href="{{ next_url or '#' }}">
+                    Older items<span aria-hidden="true">&rarr;</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</div>
+{% endblock %}

@@ -1,0 +1,18 @@
+
+            <tr class="user-item">
+                <td>
+                    <span><strong>{{ item.id }}</strong></span>
+                </td>
+                <td>
+                    {% set user_link %}
+                    <a href="{{ url_for('admin.user', username=item.creator.username) }}">
+                        {{ item.creator.username }}
+                    </a>
+                    {% endset %}
+                    <p><small>{{ user_link }} created {{ moment(item.timestamp).fromNow() }}</small></p>
+                    <p><strong>Attributes</strong></p>
+                    <div id="item{{ item.id }}-attrs" class="long-json">{{ item.get_colour_json(True)|safe }}</div>
+                    <p><strong>Data Payload</strong></p>
+                    <div id="item{{ item.id }}-data" class="long-json">{{ item.get_colour_json()|safe }}</div>
+                </td>
+            </tr>

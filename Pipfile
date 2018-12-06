@@ -1,0 +1,39 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+flask = "*"
+simplejson = "*"
+python-dotenv = "*"
+watchdog = "*"
+flask-wtf = "*"
+wtforms = "*"
+flask-sqlalchemy = "*"
+flask-migrate = "*"
+flask-login = "*"
+flask-mail = "*"
+pyjwt = "*"
+flask-bootstrap = "*"
+flask-moment = "*"
+flask-babel = "*"
+guess-language-spirit = "*"
+requests = "*"
+gunicorn = "*"
+google-cloud-pubsub = "*"
+flask-socketio = "*"
+celery = "*"
+redis = "==2.10.6"
+rq = "==0.12.0"
+rq-dashboard = "*"
+pygments = "*"
+"psycopg2" = "*"
+honcho = "*"
+grpcio-tools = "*"
+grpcio = "*"
+
+[dev-packages]
+
+[requires]
+python_version = "3.7"
