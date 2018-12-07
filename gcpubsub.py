@@ -26,9 +26,6 @@ def deploy():
     # migrate database to latest revision
     upgrade()
 
-    # create or update user roles
-    # Role.insert_roles()
-
     # Seed User db with `admin` user.
     User.add_user('admin', 'admin@gcpubsub.com', 'cannotguess')
 
