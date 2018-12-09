@@ -1,4 +1,4 @@
-# Flask server-client application with RQ ([Redis Queue][RQ]) for asynchronous polling of a Cloud pull-subscription
+# Flask server/client application with RQ ([Redis Queue][RQ]) for asynchronous polling of a Cloud pull-subscription
 
 This repository contains source code for a Flask application that may be used to poll and consume messages, published with Google's [Cloud Pub/Sub][GCPubSub]. To create a working example messages published from [Cloud Build][GCB] service have been used, but this is only for the proof-of-concept, as similar procedure could be used for other Pub/Sub topics and subscriptions. [Heroku][] [dynos][] have been used as a remote-staging environment, utilizing the free-tier, with one web dyno and one worker dyno, allowing hosting of the application together with a single `rq` worker.
 
