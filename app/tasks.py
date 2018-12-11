@@ -63,7 +63,7 @@ def _process_msg(message, user_id, job_id):
 
 
 def polling_subscription(user_id):
-    """This will continuously poll a Pull-subscription from Google Cloud Build.
+    """This will continuously poll a Pull-subscription from Google Cloud.
 
     The app is deployed on Heroku where we have only one available worker in the
     free-tier, so our queue will only have the task of continuously listening for

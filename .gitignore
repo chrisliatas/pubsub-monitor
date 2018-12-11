@@ -74,8 +74,10 @@ docs/_build/
 .project
 .pydevproject
 
-# pycharm
+# editors, pycharm, vscode, etc
 .idea/
+.vscode/
+.markdownlint.json
 
 *.DS_Store
 

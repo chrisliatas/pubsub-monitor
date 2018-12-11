@@ -60,7 +60,7 @@ Clicking on `Start polling` will initiate the background task that listens for m
 
 If you would like to know more about the app, usage considerations, Heroku deployment and alternatives, have a look at the post:
 
-[(Flask + JQuery) * RQ => polling Cloud pull-subscription][cligcpubsub]
+[Flask + RQ: Async polling a Cloud subscription][cligcpubsub]
 
 ## Dependencies
 
