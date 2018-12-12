@@ -4,7 +4,7 @@ This repository contains source code for a Flask application that may be used to
 
 The application can listen for new messages on a subscription created in a GCP project. When a new message is received it is stored in the database as a JSON string and also displayed in the current user's view (client side). [Bootstrap][] ([Flask-Bootstrap][flbstrp]), JavaScript, [JQuery][] and plugins ([Infinite-Scroll][infscrl]) have been used on the client-side to make the user experience more interesting. On the server-side, [SQLite][] has been used for the local development, while [PostgreSQL][] and [Gunicorn][] for Heroku deployment. RQ was chosen instead of [Celery][] as a lighter solution, but one could similarly use Celery instead of RQ. There is also another task-queue, [`psq`][PSQ], which is a Cloud Pub/Sub Task Queue for Python, developed by Google for this purpose. This is not an official product and is still in development, so RQ was chosen instead of `psq`.
 
-[flask monitor app][usagegif]
+<img src="app/static/usage.gif" width="873" height="644" alt="monitor Pub/Sub" />
 
 ## Usage
 
@@ -100,4 +100,3 @@ Even though my intention was to release it under the [Apache License, Version 2.
 [clientLibs]: https://cloud.google.com/pubsub/docs/quickstart-client-libraries
 [pubsubtopic]: https://cloud.google.com/pubsub/docs/quickstart-client-libraries/#create-topic-sub
 [cligcpubsub]: https://liatas.com/posts/flask-gc-pubsub/
-[usagegif]: https://github.com/chrisliatas/pubsub-monitor/blob/master/app/static/usage.gif
