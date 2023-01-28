@@ -75,9 +75,7 @@ This app has been developed utilizing the following open source projects and lib
 
 ## License
 
-Using of the ["Infinite Scroll"][infscrl] plugin ( released under [GNU GPL license v3](https://infinite-scroll.com/license.html)) requires this project to be released under the same license, as according to GPLv3 software, [merely linking](https://www.apache.org/licenses/GPL-compatibility.html) to the software it is considered by the GPLv3 authors to create a derivative work.
-
-Even though my intention was to release it under the [Apache License, Version 2.0](http://www.apache.org/licenses/LICENSE-2.0), I have to respect the GPLv3, so this work is released under GNU GPL license v3.
+This work is released under the [Apache License, Version 2.0](http://www.apache.org/licenses/LICENSE-2.0).
 
 
 [RQ]: http://python-rq.org/
